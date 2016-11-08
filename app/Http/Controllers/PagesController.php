@@ -44,27 +44,27 @@ class PagesController extends Controller
 
         
     	$this->validate($request, array(
-    			'name'=>'required',
-    			'email'=>'required|email',
-    			'body'=>'required'
+    			'con_name'=>'required',
+    			'con_email'=>'required|email',
+    			'con_message'=>'required'
     		));
 
     	$data = array(
-    		'email'=>$request->email,
-    		'body'=>$request->body,
-    		'name'=>$request->name,
-            'subject'=>$request->subject
+    		'con_email'=>$request->con_email,
+    		'con_message'=>$request->con_message,
+    		'con_name'=>$request->con_name,
+            'con_sub'=>$request->con_sub
     		);
 
 
     	Mail::send('emails.contact', $data, function($message) use ($data){
 
-    		$message->from($data['email'], $data['name']);
+    		$message->from($data['con_email'], $data['con_name']);
 
     		$message->to('kunaigor44@gmail.com');
             
 
-    		$message->subject($data['subject']);
+    		$message->subject($data['con_message']);
 
     	});
 

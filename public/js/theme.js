@@ -129,9 +129,15 @@
             if (required === 0)
             {
                 $.ajax({
-                    type: "GET",
+                    type: "get",
                     url: 'contact/send',
-                    data: {con_name: name, con_email: email, con_message: message, con_sub: subject},
+                    data: {'con_name':$('input[name=con_name]').val(),
+                            'con_email':$('input[name=con_email]').val(), 
+                            'con_message':$('input[name=con_message]').val(),
+                            'con_sub':$('input[name=con_sub]').val(), 
+                            '_token': $('input[name=_token]').val()
+                            },
+                    
                     success: function (data)
                     {
                         $("#con_submit").html('Done!');

@@ -107,7 +107,7 @@ Route::delete('/admin/about/deleteShortAbout', ['as'=>'about.deleteShortAbout', 
 //about.deleteShortAbout
 
 
-Route::post('contact/send', ['as'=>'contact.send', 'uses'=>'PagesController@contactSend']);
+Route::get('contact/send', ['as'=>'contact.send', 'uses'=>'PagesController@contactSend']);
 
 
 Auth::routes();
